@@ -1,28 +1,21 @@
 Imports System
 
-Module Program
-    Sub fixstart()
-        Dim String1 As String = Console.ReadLine()
-        Dim result As String = FixStart(String1)
-        String1 = ""
+Module Module1
+    Sub Main()
+
+        Dim a As String = Console.ReadLine()
+        Dim b As String = Console.ReadLine()
+        Dim result As String = MixUp(a, b)
+
+        a = ""
+        b = ""
         result = ""
-        Console.Write("Enter a string: ")
-        Console.WriteLine($"Result: {result}")
+        Console.Write("Enter the first string (a): ")
+        Console.Write("Enter the second string (b): ")
     End Sub
-    Function FixStart(str As String) As String
-        Dim firstChar As Char = str(0)
-        Dim modifiedString As String = firstChar
-
-        firstChar = ''
-        modifiedString = ""
-
-        For i As Integer = 1 To str.Length - 1
-            If str(i) = firstChar Then
-                modifiedString &= "*"
-            Else
-                modifiedString &= str(i)
-            End If
-        Next
-        Return modifiedString
+    Function MixUp(a As String, b As String) As String
+        Dim mixedString As String = b.Substring(0, 2) & a.Substring(2) & " " & a.Substring(0, 2) & b.Substring(2)
+        Return mixedString
     End Function
 End Module
+
