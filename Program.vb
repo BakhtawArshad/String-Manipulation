@@ -1,24 +1,21 @@
-Imports System
+Module Main
+    Sub Main()
+        Dim alpha As String
+        Console.Write("Enter s string:")
+        alpha = Console.ReadLine()
 
-Module Program
-    Sub verbing()
-        Dim String1 As String = Console.ReadLine()
-        Dim result As String = Verbing(String1)
+        Dim isLowercase As Boolean = True
 
-        String1 = ""
-        result = ""
+        For Each Letter As Char In alpha
+            If Letter <> Char.ToLower(Letter) Then
+                isLowercase = False
+                Exit For
 
-        Console.Write("Enter a string: ")
-        String1 = Console.ReadLine()
+            End If
+        Next
 
     End Sub
-    Function Verbing(mooo As String) As String
-        If mooo.Length < 3 Then
-            Return mooo
-        ElseIf mooo.EndsWith("ing") Then
-            Return mooo & "ly"
-        Else
-            Return mooo & "ing"
-        End If
-    End Function
+
+
+
 End Module
