@@ -1,33 +1,26 @@
-Imports System
+
 
 Module Program
-    Sub CountCharacters()
-        Dim Str As String
-        Dim Character As Char
-        Dim count As Integer = 0
-        Dim AlphaCount As Integer = 0
-        Dim digitCount As Integer = 0
-        Dim otherCount As Integer = 0
+    Sub Main()
+        Dim str As String
+        Dim chcount As New Dictionary(Of Char, Integer)
 
-        Console.WriteLine("Enter a string:")
-        Str = Console.ReadLine()
+        Console.Write("Enter a string:")
+        str = Console.ReadLine
 
-        Console.WriteLine("Enter a character to count:")
-        Character = Console.ReadLine()(0)
-
-        For Each c As Char In Str
-            If Char.ToLower(c) = Char.ToLower(Character) Then
-                count = count + 1
-            End If
-
-            If Char.IsLetter(c) Then
-                AlphaCount = AlphaCount + 1
-            ElseIf Char.IsDigit(c) Then
-                digitCount = digitCount + 1
+        'count the character that appears most number of time
+        For Each c As Char In str
+            If chcount.ContainsKey(c) Then
+                chcount(c) = chcount(c) + 1
             Else
-                otherCount = otherCount + 1
+                chcount.Add(c, 1)
+
             End If
         Next
 
+        For Each kvp As KeyValuePair(Of Char, Integer) In chcount
+            Console.WriteLine("character:" & kvp.Key & ",count:" & kvp.Value)
+
+        Next
     End Sub
 End Module
