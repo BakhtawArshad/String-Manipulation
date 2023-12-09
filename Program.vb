@@ -1,24 +1,23 @@
 Imports System
 
 Module Program
-    Sub verbing()
-        Dim String1 As String = Console.ReadLine()
-        Dim result As String = Verbing(String1)
-
-        String1 = ""
-        result = ""
-
+    Sub Main()
         Console.Write("Enter a string: ")
-        String1 = Console.ReadLine()
-
+        Dim inputString As String = Console.ReadLine()
+        Dim result As String = NotBad(inputString)
     End Sub
-    Function Verbing(mooo As String) As String
-        If mooo.Length < 3 Then
-            Return mooo
-        ElseIf mooo.EndsWith("ing") Then
-            Return mooo & "ly"
+    Function NotBad(s As String) As String
+        Dim NIndex As Integer = s.IndexOf("not")
+        Dim BIndex As Integer = s.IndexOf("bad")
+
+        If NIndex <> -1 Then AndAlso BIndex <> -1 AndAlso BIndex > NIndex Then
+            Return s.Substring(0, NIndex) & "good" & s.Substring(BIndex + 3)
         Else
-            Return mooo & "ing"
+        Return s
         End If
+
+
     End Function
+
+
 End Module
