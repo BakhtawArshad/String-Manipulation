@@ -1,17 +1,23 @@
 Imports System
 
 Module Program
-    Sub Donuts()
-        Dim Count1 As Integer
-        Dim output As String
-        Count1 = 0
+    Sub BothEnds()
+        Dim str1, Str2 As String
+        Dim Char1 As Char
+        Char1 = ""
+        Str2 = ""
+        str1 = ""
+        Console.Write("Enter a string: ")
+        str1 = Console.ReadLine()
 
-        If Count1 >= 10 Then
-            output = "Number of donuts: many"
-        Else
-            output = "Number of donuts: " & Count1.ToString()
-        End If
-
-        Console.WriteLine(output)
+        For i = 1 To Len(str1)
+            Char1 = Mid(str1, i, 1)
+            'check if the length of the string is less then 2
+            If str1.Length < 2 Then
+                str1 = str1 + Char1
+            Else
+                Str2 = Str2 & str1
+            End If
+        Next
     End Sub
 End Module
