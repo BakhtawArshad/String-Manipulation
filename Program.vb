@@ -1,25 +1,33 @@
-Module Module1
-    Sub Main()
-        Dim input As String
-        Console.Write("Enter a string:")
-        input = Console.ReadLine()
+Imports System
 
+Module Program
+    Sub CountCharacters()
+        Dim Str As String
+        Dim Character As Char
+        Dim count As Integer = 0
+        Dim AlphaCount As Integer = 0
+        Dim digitCount As Integer = 0
+        Dim otherCount As Integer = 0
 
-        Dim char1 As Char
-        Console.Write("Enter the cahracter to replace")
-        char1 = Console.ReadKey().KeyChar
-        Console.WriteLine()
+        Console.WriteLine("Enter a string:")
+        Str = Console.ReadLine()
 
-        Dim char2 As Char
-        Console.WriteLine("enter the character to replace with")
-        char2 = Console.ReadKey().KeyChar
-        Console.WriteLine()
+        Console.WriteLine("Enter a character to count:")
+        Character = Console.ReadLine()(0)
 
-        Dim newstring As String = input.Replace(char1, char2)
+        For Each c As Char In Str
+            If Char.ToLower(c) = Char.ToLower(Character) Then
+                count = count + 1
+            End If
 
-        Console.WriteLine("Result:" & newstring)
+            If Char.IsLetter(c) Then
+                AlphaCount = AlphaCount + 1
+            ElseIf Char.IsDigit(c) Then
+                digitCount = digitCount + 1
+            Else
+                otherCount = otherCount + 1
+            End If
+        Next
 
     End Sub
-
-
 End Module
