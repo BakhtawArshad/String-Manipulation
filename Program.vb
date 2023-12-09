@@ -1,21 +1,17 @@
 Imports System
 
 Module Program
-    Sub Main()
-        Dim Str1 As String
-        Dim Vcount As Integer = 0
+    Sub Donuts()
+        Dim Count1 As Integer
+        Dim output As String
+        Count1 = 0
 
-        Console.WriteLine("Enter a string")
-        Str1 = Console.ReadLine()
+        If Count1 >= 10 Then
+            output = "Number of donuts: many"
+        Else
+            output = "Number of donuts: " & Count1.ToString()
+        End If
 
-        For Each c As Char In Str1
-            Select Case Char.ToLower(c)
-                Case "a", "e", "i", "o", "u"
-                    Vcount = Vcount + 1
-            End Select
-        Next
-
-        Console.WriteLine("The count of vowel characters in the string is: " & Vcount)
-
+        Console.WriteLine(output)
     End Sub
 End Module
