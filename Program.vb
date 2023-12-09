@@ -1,23 +1,28 @@
 Imports System
 
 Module Program
-    Sub BothEnds()
-        Dim str1, Str2 As String
-        Dim Char1 As Char
-        Char1 = ""
-        Str2 = ""
-        str1 = ""
+    Sub fixstart()
+        Dim String1 As String = Console.ReadLine()
+        Dim result As String = FixStart(String1)
+        String1 = ""
+        result = ""
         Console.Write("Enter a string: ")
-        str1 = Console.ReadLine()
+        Console.WriteLine($"Result: {result}")
+    End Sub
+    Function FixStart(str As String) As String
+        Dim firstChar As Char = str(0)
+        Dim modifiedString As String = firstChar
 
-        For i = 1 To Len(str1)
-            Char1 = Mid(str1, i, 1)
-            'check if the length of the string is less then 2
-            If str1.Length < 2 Then
-                str1 = str1 + Char1
+        firstChar = ''
+        modifiedString = ""
+
+        For i As Integer = 1 To str.Length - 1
+            If str(i) = firstChar Then
+                modifiedString &= "*"
             Else
-                Str2 = Str2 & str1
+                modifiedString &= str(i)
             End If
         Next
-    End Sub
+        Return modifiedString
+    End Function
 End Module
