@@ -1,26 +1,21 @@
-
+Imports System
 
 Module Program
     Sub Main()
-        Dim str As String
-        Dim chcount As New Dictionary(Of Char, Integer)
+        Dim Str1 As String
+        Dim Vcount As Integer = 0
 
-        Console.Write("Enter a string:")
-        str = Console.ReadLine
+        Console.WriteLine("Enter a string")
+        Str1 = Console.ReadLine()
 
-        'count the character that appears most number of time
-        For Each c As Char In str
-            If chcount.ContainsKey(c) Then
-                chcount(c) = chcount(c) + 1
-            Else
-                chcount.Add(c, 1)
-
-            End If
+        For Each c As Char In Str1
+            Select Case Char.ToLower(c)
+                Case "a", "e", "i", "o", "u"
+                    Vcount = Vcount + 1
+            End Select
         Next
 
-        For Each kvp As KeyValuePair(Of Char, Integer) In chcount
-            Console.WriteLine("character:" & kvp.Key & ",count:" & kvp.Value)
+        Console.WriteLine("The count of vowel characters in the string is: " & Vcount)
 
-        Next
     End Sub
 End Module
