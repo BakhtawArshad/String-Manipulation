@@ -1,21 +1,24 @@
 Imports System
 
-Module Module1
-    Sub Main()
+Module Program
+    Sub verbing()
+        Dim String1 As String = Console.ReadLine()
+        Dim result As String = Verbing(String1)
 
-        Dim a As String = Console.ReadLine()
-        Dim b As String = Console.ReadLine()
-        Dim result As String = MixUp(a, b)
-
-        a = ""
-        b = ""
+        String1 = ""
         result = ""
-        Console.Write("Enter the first string (a): ")
-        Console.Write("Enter the second string (b): ")
+
+        Console.Write("Enter a string: ")
+        String1 = Console.ReadLine()
+
     End Sub
-    Function MixUp(a As String, b As String) As String
-        Dim mixedString As String = b.Substring(0, 2) & a.Substring(2) & " " & a.Substring(0, 2) & b.Substring(2)
-        Return mixedString
+    Function Verbing(mooo As String) As String
+        If mooo.Length < 3 Then
+            Return mooo
+        ElseIf mooo.EndsWith("ing") Then
+            Return mooo & "ly"
+        Else
+            Return mooo & "ing"
+        End If
     End Function
 End Module
-
