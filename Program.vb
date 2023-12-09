@@ -1,21 +1,25 @@
-Module Main
+Module Module1
     Sub Main()
-        Dim alpha As String
-        Console.Write("Enter s string:")
-        alpha = Console.ReadLine()
+        Dim input As String
+        Console.Write("Enter a string:")
+        input = Console.ReadLine()
 
-        Dim isLowercase As Boolean = True
 
-        For Each Letter As Char In alpha
-            If Letter <> Char.ToLower(Letter) Then
-                isLowercase = False
-                Exit For
+        Dim char1 As Char
+        Console.Write("Enter the cahracter to replace")
+        char1 = Console.ReadKey().KeyChar
+        Console.WriteLine()
 
-            End If
-        Next
+        Dim char2 As Char
+        Console.WriteLine("enter the character to replace with")
+        char2 = Console.ReadKey().KeyChar
+        Console.WriteLine()
+
+        Dim newstring As String = input.Replace(char1, char2)
+
+        Console.WriteLine("Result:" & newstring)
 
     End Sub
-
 
 
 End Module
